@@ -1,0 +1,9 @@
+Descrição do formato do modelo.
+
+O arquivo do modelo ("MODELO.npz") gerado pelo módulo Indexador (INDEX) encontra-se na pasta RESULT.
+Trata-se de um arquivo compactado para arquivos ".npy", da biblioteca NumPy.
+No arquivo "MODELO.npz", estão armazenados três arquivos:
+
+- "matriz_tfidf.npy": nele está armazenada a matriz termo-documento do modelo, com as frequências normalizadas utilizando-se o método tf-idf padrão;
+- "documentos.npy": uma lista ordenada com os códigos dos documentos, na mesma ordem da matriz termo-documento; e
+- "termos.npy": uma lista ordenada com todos os termos da coleção, na mesma ordem da matriz termo-documento.
