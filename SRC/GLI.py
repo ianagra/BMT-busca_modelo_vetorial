@@ -1,5 +1,4 @@
 import csv
-import csv
 import logging
 import time
 import unicodedata
