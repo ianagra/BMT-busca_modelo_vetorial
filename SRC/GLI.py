@@ -8,7 +8,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from unidecode import unidecode
 
-
+#Função que verifica se uma string contém dígito
 def contem_digitos(string):
     for char in string:
         if char.isdigit():
@@ -20,7 +20,7 @@ inicio_geral = time.time()
 logging.basicConfig(filename="../LOG/GLI.LOG", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logging.info("Início do programa.")
 
-###Baixar lista de stopwords do NLTK
+#Baixar lista de stopwords do NLTK
 nltk.download("stopwords")
 stopwords = set(stopwords.words("english"))
 
@@ -91,6 +91,7 @@ for arquivo in arquivos_leia:
         "".join(c for c in unicodedata.normalize("NFD", texto_base) if unicodedata.category(c) != "Mn")
         texto_base = unidecode(texto_base)
         for palavra in texto_base.split():
+            
             #Adicionar a palavra ao dicionário ou atualizar a lista de documentos em que ela aparece
             if palavra in dicionario:
                 dicionario[palavra].append(int(record_num))
@@ -99,6 +100,7 @@ for arquivo in arquivos_leia:
 tempo_proc = time.time() - inicio_proc
 tempo_medio = tempo_proc / cont_doc
 logging.info(f"Fim do processamento dos dados. Processados {cont_arq} arquivos, {cont_doc} documentos e extraídos {len(dicionario)} termos em {tempo_proc} segundos (tempo médio por documento {tempo_medio} segundos).")
+
 #Criar o arquivo CSV
 logging.info("Início da gravação dos dados.")
 inicio_grav = time.time()
