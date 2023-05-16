@@ -1,0 +1,8 @@
+2023-05-16 16:34:36,566 - INFO - Início do programa.
+2023-05-16 16:34:36,708 - INFO - Lendo arquivo de configuração...
+2023-05-16 16:34:36,710 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-16 16:34:36,711 - INFO - Início da leitura e processamento dos dados.
+2023-05-16 16:34:37,537 - INFO - Fim do processamento dos dados. Processados 6 arquivos, 1239 documentos e extraídos 9357 termos em 0.8255913257598877 segundos (tempo médio por documento 0.0006663368246649619 segundos).
+2023-05-16 16:34:37,537 - INFO - Início da gravação dos dados.
+2023-05-16 16:34:37,564 - INFO - Fim da gravação dos dados. Gravados 9357 registros em 0.026790618896484375 segundos (tempo médio por registro 2.863163289140149e-06 segundos).
+2023-05-16 16:34:37,564 - INFO - Fim do programa. Tempo total 0.9981355667114258 segundos.

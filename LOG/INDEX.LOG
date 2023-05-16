@@ -1,0 +1,10 @@
+2023-05-16 16:34:47,034 - INFO - Início do programa.
+2023-05-16 16:34:47,034 - INFO - Lendo arquivo de configuração...
+2023-05-16 16:34:47,034 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-16 16:34:47,034 - INFO - Início da leitura da lista invertida.
+2023-05-16 16:34:47,672 - INFO - Lista invertida lida com sucesso. Processados 9357 termos - tempo médio de 6.80847989451596e-05 segundos.
+2023-05-16 16:34:47,672 - INFO - Início da criação da matriz termo_documento com tf-idf.
+2023-05-16 16:35:38,379 - INFO - Matriz termo_documento criada com sucesso. Processadas 9357 linhas e 1215 colunas em 50.70686984062195 segundos - tempo médio por item de 4.460195495515732e-06 segundos.
+2023-05-16 16:35:38,379 - INFO - Início da gravação dos dados do modelo em arquivo.
+2023-05-16 16:35:39,280 - INFO - Gravação dos dados do modelo concluída. Gravadas 9359 linhas em 0.9010095596313477 segundos - tempo médio de 9.62719905578959e-05 segundos.
+2023-05-16 16:35:39,280 - INFO - Fim do programa. Tempo total 52.24654150009155 segundos.

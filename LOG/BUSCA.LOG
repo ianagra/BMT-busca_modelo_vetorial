@@ -1,0 +1,10 @@
+2023-05-16 16:36:02,483 - INFO - Início do programa.
+2023-05-16 16:36:02,584 - INFO - Lendo arquivo de configuração...
+2023-05-16 16:36:02,586 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-16 16:36:02,586 - INFO - Lendo arquivo do modelo...
+2023-05-16 16:36:02,743 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.15657901763916016 segundos
+2023-05-16 16:36:02,743 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-16 16:36:03,059 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.31517696380615234 segundos
+2023-05-16 16:36:10,507 - INFO - Início da gravação dos dados.
+2023-05-16 16:36:11,148 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-16 16:36:11,149 - INFO - Fim do programa. Tempo total 8.666178226470947 segundos.
