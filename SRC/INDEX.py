@@ -18,13 +18,19 @@ logging.info("Início do programa.")
 logging.info("Lendo arquivo de configuração...")
 config = configparser.ConfigParser()
 config.read("INDEX.CFG")
+stemmer = False
+if config.has_section("STEMMER"):
+    stemmer = True
 logging.info("Arquivo de configuração lido com sucesso.")
 
 #Leitura do arquivo CSV com a lista invertida de termos
 logging.info("Início da leitura da lista invertida.")
 inicio_li = time.time()
-df = pd.read_csv(config["INSTRUCOES"]["LEIA"], header=None, names=["termo", "documento"], sep=";")
-        
+if stemmer:
+    df = pd.read_csv(config["INSTRUCOES"]["LEIA"].replace(".csv", "-STEMMER.csv"), header=None, names=["termo", "documento"], sep=";")
+else:
+    df = pd.read_csv(config["INSTRUCOES"]["LEIA"].replace(".csv", "-NOSTEMMER.csv"), header=None, names=["termo", "documento"], sep=";")
+
 #Criar um dicionário para armazenar os termos e seus documentos
 dicionario_termos = {}
 

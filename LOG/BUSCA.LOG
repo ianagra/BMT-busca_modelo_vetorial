@@ -8,3 +8,165 @@
 2023-05-16 16:36:10,507 - INFO - Início da gravação dos dados.
 2023-05-16 16:36:11,148 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
 2023-05-16 16:36:11,149 - INFO - Fim do programa. Tempo total 8.666178226470947 segundos.
+2023-05-18 00:49:03,064 - INFO - Início do programa.
+2023-05-18 00:49:03,255 - INFO - Lendo arquivo de configuração...
+2023-05-18 00:50:05,727 - INFO - Início do programa.
+2023-05-18 00:50:05,804 - INFO - Lendo arquivo de configuração...
+2023-05-18 00:50:05,805 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 00:50:05,805 - INFO - Lendo arquivo do modelo...
+2023-05-18 00:50:05,918 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.11336159706115723 segundos
+2023-05-18 00:50:05,919 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 00:50:12,821 - INFO - Processados 6766 termos de 1215 documentos e 99 consultas em 6.901902675628662 segundos
+2023-05-18 00:50:18,499 - INFO - Início da gravação dos dados.
+2023-05-18 00:53:21,198 - INFO - Início do programa.
+2023-05-18 00:53:21,295 - INFO - Lendo arquivo de configuração...
+2023-05-18 00:53:21,296 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 00:53:21,296 - INFO - Lendo arquivo do modelo...
+2023-05-18 00:53:21,407 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.11111736297607422 segundos
+2023-05-18 00:53:21,407 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 00:53:27,715 - INFO - Processados 6766 termos de 1215 documentos e 99 consultas em 6.3078696727752686 segundos
+2023-05-18 00:53:33,343 - INFO - Início da gravação dos dados.
+2023-05-18 00:53:33,359 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 00:53:33,359 - INFO - Fim do programa. Tempo total 12.161591291427612 segundos.
+2023-05-18 00:55:36,638 - INFO - Início do programa.
+2023-05-18 00:55:36,717 - INFO - Lendo arquivo de configuração...
+2023-05-18 00:55:36,720 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 00:55:36,720 - INFO - Lendo arquivo do modelo...
+2023-05-18 00:55:36,832 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.11138319969177246 segundos
+2023-05-18 00:55:36,832 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 00:55:43,179 - INFO - Processados 6766 termos de 1215 documentos e 99 consultas em 6.346380949020386 segundos
+2023-05-18 00:55:48,798 - INFO - Início da gravação dos dados.
+2023-05-18 00:55:48,812 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 00:55:48,812 - INFO - Fim do programa. Tempo total 12.174751043319702 segundos.
+2023-05-18 01:01:40,340 - INFO - Início do programa.
+2023-05-18 01:01:40,444 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:02:51,973 - INFO - Início do programa.
+2023-05-18 01:02:52,031 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:02:52,032 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:02:52,032 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:04:01,372 - INFO - Início do programa.
+2023-05-18 01:04:01,444 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:04:01,445 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:04:01,445 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:06:08,232 - INFO - Início do programa.
+2023-05-18 01:06:08,355 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:06:08,358 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:06:08,358 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:06:08,478 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.11955690383911133 segundos
+2023-05-18 01:06:08,478 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 01:06:13,447 - INFO - Processados 6699 termos de 1215 documentos e 99 consultas em 4.967993259429932 segundos
+2023-05-18 01:06:19,117 - INFO - Início da gravação dos dados.
+2023-05-18 01:06:19,425 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 01:06:19,426 - INFO - Fim do programa. Tempo total 11.193486452102661 segundos.
+2023-05-18 01:07:03,235 - INFO - Início do programa.
+2023-05-18 01:07:03,295 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:07:03,297 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:07:03,297 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:07:03,394 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.09673452377319336 segundos
+2023-05-18 01:07:03,394 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 01:07:09,745 - INFO - Processados 6766 termos de 1215 documentos e 99 consultas em 6.350788593292236 segundos
+2023-05-18 01:07:15,501 - INFO - Início da gravação dos dados.
+2023-05-18 01:07:15,516 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 01:07:15,516 - INFO - Fim do programa. Tempo total 12.281041383743286 segundos.
+2023-05-18 01:11:00,253 - INFO - Início do programa.
+2023-05-18 01:11:00,332 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:11:00,334 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:11:00,334 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:11:00,435 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.10079336166381836 segundos
+2023-05-18 01:11:00,435 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 01:11:00,561 - INFO - Processados 6463 termos de 1215 documentos e 99 consultas em 0.12581372261047363 segundos
+2023-05-18 01:11:06,160 - INFO - Início da gravação dos dados.
+2023-05-18 01:11:06,890 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 01:11:06,890 - INFO - Fim do programa. Tempo total 6.637575149536133 segundos.
+2023-05-18 01:14:06,542 - INFO - Início do programa.
+2023-05-18 01:14:06,608 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:14:06,609 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:14:06,609 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:14:06,744 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.13502216339111328 segundos
+2023-05-18 01:14:06,744 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 01:14:07,058 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.3142821788787842 segundos
+2023-05-18 01:14:14,662 - INFO - Início da gravação dos dados.
+2023-05-18 01:14:15,345 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 01:14:15,346 - INFO - Fim do programa. Tempo total 8.803553581237793 segundos.
+2023-05-18 01:16:00,194 - INFO - Início do programa.
+2023-05-18 01:16:00,248 - INFO - Lendo arquivo de configuração...
+2023-05-18 01:16:00,250 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-18 01:16:00,250 - INFO - Lendo arquivo do modelo...
+2023-05-18 01:16:00,348 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.09781360626220703 segundos
+2023-05-18 01:16:00,348 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-18 01:16:00,475 - INFO - Processados 6463 termos de 1215 documentos e 99 consultas em 0.12688517570495605 segundos
+2023-05-18 01:16:06,220 - INFO - Início da gravação dos dados.
+2023-05-18 01:16:06,965 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-18 01:16:06,965 - INFO - Fim do programa. Tempo total 6.771161794662476 segundos.
+2023-05-24 01:33:22,897 - INFO - Início do programa.
+2023-05-24 01:33:22,954 - INFO - Lendo arquivo de configuração...
+2023-05-24 01:33:22,955 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 01:33:22,955 - INFO - Lendo arquivo do modelo...
+2023-05-24 01:33:23,116 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.16041135787963867 segundos
+2023-05-24 01:33:23,116 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 01:33:23,573 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.45679616928100586 segundos
+2023-05-24 01:33:31,211 - INFO - Início da gravação dos dados.
+2023-05-24 01:33:32,091 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-24 01:33:32,091 - INFO - Fim do programa. Tempo total 9.195229291915894 segundos.
+2023-05-24 01:42:16,670 - INFO - Início do programa.
+2023-05-24 01:42:16,772 - INFO - Lendo arquivo de configuração...
+2023-05-24 01:42:16,774 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 01:42:16,775 - INFO - Lendo arquivo do modelo...
+2023-05-24 01:42:16,932 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.15684127807617188 segundos
+2023-05-24 01:42:16,932 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 01:42:17,250 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.31729722023010254 segundos
+2023-05-24 01:42:24,681 - INFO - Início da gravação dos dados.
+2023-05-24 01:43:54,144 - INFO - Início do programa.
+2023-05-24 01:43:54,212 - INFO - Lendo arquivo de configuração...
+2023-05-24 01:43:54,213 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 01:43:54,213 - INFO - Lendo arquivo do modelo...
+2023-05-24 01:43:54,355 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.14129877090454102 segundos
+2023-05-24 01:43:54,355 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 01:43:54,674 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.31923747062683105 segundos
+2023-05-24 01:44:02,087 - INFO - Início da gravação dos dados.
+2023-05-24 01:44:02,740 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-24 01:44:02,740 - INFO - Fim do programa. Tempo total 8.596921443939209 segundos.
+2023-05-24 14:59:31,593 - INFO - Início do programa.
+2023-05-24 14:59:31,740 - INFO - Lendo arquivo de configuração...
+2023-05-24 14:59:31,743 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 14:59:31,743 - INFO - Lendo arquivo do modelo...
+2023-05-24 14:59:31,865 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.12108397483825684 segundos
+2023-05-24 14:59:31,865 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 14:59:32,039 - INFO - Processados 6463 termos de 1215 documentos e 99 consultas em 0.17369532585144043 segundos
+2023-05-24 14:59:37,701 - INFO - Início da gravação dos dados.
+2023-05-24 14:59:38,386 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-24 14:59:38,386 - INFO - Fim do programa. Tempo total 6.793286323547363 segundos.
+2023-05-24 15:35:14,187 - INFO - Início do programa.
+2023-05-24 15:35:14,253 - INFO - Lendo arquivo de configuração...
+2023-05-24 15:35:14,254 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 15:35:14,254 - INFO - Lendo arquivo do modelo...
+2023-05-24 15:35:14,393 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.13917994499206543 segundos
+2023-05-24 15:35:14,393 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 15:35:14,719 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.32556986808776855 segundos
+2023-05-24 15:35:22,416 - INFO - Início da gravação dos dados.
+2023-05-24 15:35:23,012 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-24 15:35:23,013 - INFO - Fim do programa. Tempo total 8.82569932937622 segundos.
+2023-05-24 15:54:44,876 - INFO - Início do programa.
+2023-05-24 15:54:44,969 - INFO - Lendo arquivo de configuração...
+2023-05-24 15:54:44,971 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 15:54:44,972 - INFO - Lendo arquivo do modelo...
+2023-05-24 15:57:06,409 - INFO - Início do programa.
+2023-05-24 15:57:06,474 - INFO - Lendo arquivo de configuração...
+2023-05-24 15:57:06,474 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 15:57:06,474 - INFO - Lendo arquivo do modelo...
+2023-05-24 15:57:06,615 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.14028692245483398 segundos
+2023-05-24 15:57:06,615 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 15:57:06,929 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.3144104480743408 segundos
+2023-05-24 15:57:14,527 - INFO - Início da gravação dos dados.
+2023-05-24 15:57:15,111 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-24 15:57:15,111 - INFO - Fim do programa. Tempo total 8.702691078186035 segundos.
+2023-05-24 15:59:20,618 - INFO - Início do programa.
+2023-05-24 15:59:20,683 - INFO - Lendo arquivo de configuração...
+2023-05-24 15:59:20,685 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-24 15:59:20,685 - INFO - Lendo arquivo do modelo...
+2023-05-24 15:59:20,786 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.10021686553955078 segundos
+2023-05-24 15:59:20,786 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-24 15:59:20,913 - INFO - Processados 6463 termos de 1215 documentos e 99 consultas em 0.12707257270812988 segundos
+2023-05-24 15:59:26,612 - INFO - Início da gravação dos dados.
+2023-05-24 15:59:27,277 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-24 15:59:27,277 - INFO - Fim do programa. Tempo total 6.659286737442017 segundos.
