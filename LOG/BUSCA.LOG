@@ -170,3 +170,23 @@
 2023-05-24 15:59:26,612 - INFO - Início da gravação dos dados.
 2023-05-24 15:59:27,277 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
 2023-05-24 15:59:27,277 - INFO - Fim do programa. Tempo total 6.659286737442017 segundos.
+2023-05-25 15:15:48,024 - INFO - Início do programa.
+2023-05-25 15:15:48,278 - INFO - Lendo arquivo de configuração...
+2023-05-25 15:15:48,280 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-25 15:15:48,280 - INFO - Lendo arquivo do modelo...
+2023-05-25 15:15:48,426 - INFO - Arquivo do modelo lido com sucesso. Processados 6461 termos e 1215 documentos em 0.14539813995361328 segundos
+2023-05-25 15:15:48,427 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-25 15:15:48,566 - INFO - Processados 6463 termos de 1215 documentos e 99 consultas em 0.1389009952545166 segundos
+2023-05-25 15:15:54,637 - INFO - Início da gravação dos dados.
+2023-05-25 15:15:55,466 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-25 15:15:55,485 - INFO - Fim do programa. Tempo total 7.461148262023926 segundos.
+2023-05-25 15:17:40,062 - INFO - Início do programa.
+2023-05-25 15:17:40,120 - INFO - Lendo arquivo de configuração...
+2023-05-25 15:17:40,121 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-25 15:17:40,121 - INFO - Lendo arquivo do modelo...
+2023-05-25 15:17:40,477 - INFO - Arquivo do modelo lido com sucesso. Processados 9357 termos e 1215 documentos em 0.3558170795440674 segundos
+2023-05-25 15:17:40,477 - INFO - Obtendo os vetores de termos dos documentos e das consultas
+2023-05-25 15:17:40,905 - INFO - Processados 9364 termos de 1215 documentos e 99 consultas em 0.42682576179504395 segundos
+2023-05-25 15:17:51,107 - INFO - Início da gravação dos dados.
+2023-05-25 15:17:52,054 - INFO - Fim da gravação dos dados. Gravados {} registros em {tempo_grav} segundos (tempo médio por registro {tempo_medio_grav} segundos).
+2023-05-25 15:17:52,055 - INFO - Fim do programa. Tempo total 11.993695497512817 segundos.

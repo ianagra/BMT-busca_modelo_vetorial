@@ -252,3 +252,19 @@
 2023-05-24 15:57:38,962 - INFO - Início da gravação dos dados.
 2023-05-24 15:57:38,991 - INFO - Fim da gravação dos dados. Gravados 6461 registros em 0.028727054595947266 segundos (tempo médio por registro 4.446224206151875e-06 segundos).
 2023-05-24 15:57:38,991 - INFO - Fim do programa. Tempo total 1.5337543487548828 segundos.
+2023-05-25 15:10:54,006 - INFO - Início do programa.
+2023-05-25 15:10:54,122 - INFO - Lendo arquivo de configuração...
+2023-05-25 15:10:54,123 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-25 15:10:54,123 - INFO - Início da leitura e processamento dos dados.
+2023-05-25 15:10:55,517 - INFO - Fim do processamento dos dados. Processados 6 arquivos, 1239 documentos e extraídos 9357 termos em 1.3932216167449951 segundos (tempo médio por documento 0.001124472652740109 segundos).
+2023-05-25 15:10:55,517 - INFO - Início da gravação dos dados.
+2023-05-25 15:10:55,555 - INFO - Fim da gravação dos dados. Gravados 9357 registros em 0.03774523735046387 segundos (tempo médio por registro 4.0339037459082895e-06 segundos).
+2023-05-25 15:10:55,555 - INFO - Fim do programa. Tempo total 1.549638271331787 segundos.
+2023-05-25 15:11:08,790 - INFO - Início do programa.
+2023-05-25 15:11:08,869 - INFO - Lendo arquivo de configuração...
+2023-05-25 15:11:08,937 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-25 15:11:08,937 - INFO - Início da leitura e processamento dos dados.
+2023-05-25 15:11:10,679 - INFO - Fim do processamento dos dados. Processados 6 arquivos, 1239 documentos e extraídos 6461 termos em 1.7408630847930908 segundos (tempo médio por documento 0.001405054951406853 segundos).
+2023-05-25 15:11:10,688 - INFO - Início da gravação dos dados.
+2023-05-25 15:11:10,830 - INFO - Fim da gravação dos dados. Gravados 6461 registros em 0.11475133895874023 segundos (tempo médio por registro 1.7760615842553822e-05 segundos).
+2023-05-25 15:11:10,830 - INFO - Fim do programa. Tempo total 2.040260076522827 segundos.

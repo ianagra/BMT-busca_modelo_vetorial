@@ -78,3 +78,13 @@
 2023-05-24 15:55:10,934 - INFO - Início do processamento para geração do arquivo ESPERADOS.
 2023-05-24 15:55:10,941 - INFO - Fim do processamento de ESPERADOS - processados 4821 registros em 0.0067446231842041016 segundos (tempo médio por registro 1.3990091649458828e-06 segundos.
 2023-05-24 15:55:10,941 - INFO - Fim do programa. Tempo total 0.018207311630249023 segundos.
+2023-05-25 15:10:32,246 - INFO - Início do programa.
+2023-05-25 15:10:32,265 - INFO - Lendo arquivo de configuração...
+2023-05-25 15:10:32,266 - INFO - Arquivo de configuração lido com sucesso.
+2023-05-25 15:10:32,266 - INFO - Lendo arquivo de dados...
+2023-05-25 15:10:32,338 - INFO - Arquivo de dados lido com sucesso.
+2023-05-25 15:10:32,362 - INFO - Início do processamento para geração do arquivo CONSULTAS.
+2023-05-25 15:10:32,374 - INFO - Fim do processamento de CONSULTAS - processadas 100 consultas em 0.010478496551513672 segundos (tempo médio por consulta 0.00010478496551513672 segundos.
+2023-05-25 15:10:32,376 - INFO - Início do processamento para geração do arquivo ESPERADOS.
+2023-05-25 15:10:32,405 - INFO - Fim do processamento de ESPERADOS - processados 4821 registros em 0.02770543098449707 segundos (tempo médio por registro 5.746822440260749e-06 segundos.
+2023-05-25 15:10:32,405 - INFO - Fim do programa. Tempo total 0.16005921363830566 segundos.

@@ -17,4 +17,5 @@ O relatório gerado, RELATORIO.MD, encontra-se na pasta 'AVALIACAO', bem como os
 ## Uso do stemmer de Porter
 
 Os módulos GLI e BUSCA contam com a opção de utilizar ou não o stemmer de Porter.  
-Para utilizá-lo, basta acrescentar na primeira linha do arquivo GLI.CFG a palavra STEMMER e acrescentar uma seção [STEMMER] no arquivo BUSCA.CFG.
+Para utilizá-lo, basta acrescentar na primeira linha do arquivo GLI.CFG a palavra STEMMER e acrescentar uma seção [STEMMER] no arquivo BUSCA.CFG.  
+De forma análoga, caso deseje rodar o módulo AVALIA para avaliar os resultados gerados com o uso do stemmer, deve ser acrescentada ao arquivo AVALIA.CFG uma seção [STEMMER]. Caso contrário, ele irá avaliar os resultados gerados sem o uso do stemmer de Porter.

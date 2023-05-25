@@ -11,10 +11,10 @@
 
 ## Resultados obtidos com o uso do stemmer de Porter:
 
-- Precision@5: 3.0
-- Precision@10: 3.0
-- MAP: 1.5708513800548756
-- MRR: 1.0
+- Precision@5: 0.31313131313131315
+- Precision@10: 0.5959595959595959
+- MAP: 0.08507019566130433
+- MRR: 5.227761744428412
 - DCG: 0.3621306803912627
 - NDCG: 0.007476777642190936
 

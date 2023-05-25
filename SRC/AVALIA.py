@@ -189,6 +189,20 @@ with open("../AVALIACAO/11pontos-nostemmer-1.csv", "w", newline="") as pontos_11
     writer.writerows(dados)  # Escreve os dados
 plt.show()
 
+# Histograma de R-Precision
+plt.bar(consultas, r_precision, color='b')
+plt.xlabel("Consultas")
+plt.ylabel("R-precision")
+plt.title("Histograma de R-Precision sem o uso do stemmer")
+plt.savefig('../AVALIACAO/R-precision-nostemmer-1.pdf', format='pdf')
+dados_4 = list(zip(consultas, r_precision))
+with open("../AVALIACAO/R-precision-nostemmer-1.csv", "w", newline="") as rprecision_nostemmer_csv:
+    writer = csv.writer(rprecision_nostemmer_csv, delimiter=";")
+    writer.writerow(["Consultas", "R-precision"])
+    writer.writerows(dados_4)
+
+plt.show()
+
 
 ### Avaliação do algoritmo com o uso do stemmer
 # Inicialização de variaveis
@@ -209,8 +223,8 @@ for id_consulta_2 in consultas:
 
     # Filtrar resultados e resultados esperados para a consulta atual
     resultados_2 = df_resultados_stemmer[df_resultados_stemmer["QueryNumber"] == id_consulta]
-    esperados_2 = df_esperados[df_esperados["QueryNumber"] == id_consulta]
-    
+    esperados_2 = df_esperados[df_esperados["QueryNumber"] == id_consulta_2]
+
     # Obter os IDs de documentos relevantes e recuperados para a consulta atual
     docs_relevantes_2 = list(map(int, esperados_2["DocNumber"].to_list()))
     num_relevantes_2 = len(docs_relevantes_2)
@@ -320,7 +334,6 @@ with open("../AVALIACAO/RELATORIO.MD", "a") as arquivo_md:
 # Plotagem do gráfico de 11 pontos de precisão e revocação
 matriz_precisoes_2 = np.array(matriz_precisoes_2)
 media_colunas_2 = np.mean(matriz_precisoes_2, axis=0)
-
 plt.plot(valores_recall_desejados_2, media_colunas_2, marker='o')
 plt.xlabel("Revocação")
 plt.ylabel("Precisão")
@@ -334,16 +347,30 @@ with open("../AVALIACAO/11pontos-stemmer-1.csv", "w", newline="") as pontos_11_s
 plt.show()
 
 # Histograma de R-Precision
-r_precisions = [pair[1] for pair in precisao_revocacao if pair[0] > 0]
-plt.hist((r_precisions - r_precisions_2), bins=100)
-plt.xlabel("R-Precision")
-plt.ylabel("Frequência")
-plt.title("Histograma de R-Precision")
+plt.bar(consultas, r_precision_2, color='b')
+plt.xlabel("Consultas")
+plt.ylabel("R-precision")
+plt.title("Histograma de R-Precision com o uso do stemmer")
+plt.savefig('../AVALIACAO/R-precision-stemmer-1.pdf', format='pdf')
+dados_5 = list(zip(consultas, r_precision_2))
+with open("../AVALIACAO/R-precision-stemmer-1.csv", "w", newline="") as rprecision_stemmer_csv:
+    writer = csv.writer(rprecision_stemmer_csv, delimiter=";")
+    writer.writerow(["Consultas", "R-precision"])
+    writer.writerows(dados_5)
+
+plt.show()
+
+# Histograma comparativo de R-Precision
+diferenca_r_precision = [a - b for a, b in zip(r_precision_2, r_precision)]
+plt.bar(consultas, diferenca_r_precision, color='b')
+plt.xlabel("Consultas")
+plt.ylabel("Diferença de R-precision")
+plt.title("Histograma comparativo de R-Precision (R_stemmer - R_nostemmer)")
 plt.savefig('../AVALIACAO/R-precision-comparativo-1.pdf', format='pdf')
-dados_3 = list(zip(r_precisions - r_precisions_2))
-with open("../AVALIACAO/R-precision-comparativo-1.csv", "w", newline="") as pontos_11_stemmer_csv:
-    writer = csv.writer(pontos_11_stemmer_csv, delimiter=";")
-    writer.writerow(["R-precision-stemmer - R-precision-nostemmer"])
+dados_3 = list(zip(consultas, diferenca_r_precision))
+with open("../AVALIACAO/R-precision-comparativo-1.csv", "w", newline="") as rprecision_csv:
+    writer = csv.writer(rprecision_csv, delimiter=";")
+    writer.writerow(["Consulta", "R_stemmer - R_nostemmer"])
     writer.writerows(dados_3)
 
 plt.show()
