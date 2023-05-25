@@ -18,9 +18,10 @@ config.read("AVALIA.CFG")
 logging.info("Arquivo de configuração lido com sucesso.")
 
 # Leitura dos arquivos de resultados com e sem o uso do stemmer
+logging.info("Lendo arquivos de resultados e de esperados...")
 df_resultados_stemmer = pd.read_csv(config["INSTRUCOES"]["RESULTADOS-STEMMER"], header=None, sep=";")
 df_resultados_stemmer[["DocRanking", "DocNumber", "Cos"]] = df_resultados_stemmer[1].str.split(', ', expand=True)
-df_resultados_stemmer["DocRanking"] = df_resultados_stemmer["DocRanking"].str[1]
+df_resultados_stemmer["DocRanking"] = df_resultados_stemmer["DocRanking"].str[1:]
 df_resultados_stemmer.columns = ["QueryNumber", "Result", "DocRanking", "DocNumber", "Cos"]
 df_resultados_stemmer['QueryNumber'] = df_resultados_stemmer['QueryNumber'].astype(int)
 df_resultados_stemmer['DocRanking'] = df_resultados_stemmer['DocRanking'].astype(int)
@@ -28,7 +29,7 @@ df_resultados_stemmer['DocNumber'] = df_resultados_stemmer['DocNumber'].astype(i
 
 df_resultados_nostemmer = pd.read_csv(config["INSTRUCOES"]["RESULTADOS-NOSTEMMER"], header=None, sep=";")
 df_resultados_nostemmer[["DocRanking", "DocNumber", "Cos"]] = df_resultados_nostemmer[1].str.split(', ', expand=True)
-df_resultados_nostemmer["DocRanking"] = df_resultados_nostemmer["DocRanking"].str[1]
+df_resultados_nostemmer["DocRanking"] = df_resultados_nostemmer["DocRanking"].str[1:]
 df_resultados_nostemmer.columns = ["QueryNumber", "Result", "DocRanking", "DocNumber", "Cos"]
 df_resultados_nostemmer['QueryNumber'] = df_resultados_nostemmer['QueryNumber'].astype(int)
 df_resultados_nostemmer['DocRanking'] = df_resultados_nostemmer['DocRanking'].astype(int)
@@ -40,12 +41,15 @@ df_esperados.columns = ["QueryNumber", "DocNumber", "DocVotes"]
 df_esperados['QueryNumber'] = df_esperados['QueryNumber'].astype(int)
 df_esperados['DocVotes'] = df_esperados['DocVotes'].astype(int)
 df_esperados['DocNumber'] = df_esperados['DocNumber'].astype(int)
+logging.info("Arquivos de resultados e esperados lidos com sucesso.")
 
 # Obtenção de uma lista de códigos de consultas
 consultas = list(df_resultados_nostemmer["QueryNumber"].unique())
 
-
 ### Avaliação do algoritmo sem stemmer
+logging.info("Início da avaliação do algoritmo sem o uso do stemmer.")
+inicio_aval_nostemmer = time.time()
+
 # Inicialização de variaveis
 precisao_revocacao = []
 precision_at_5 = 0
@@ -84,25 +88,33 @@ for id_consulta in consultas:
     
     # DCG e NDCG
     dcg = 0.0
+    idcg = 0.0
     ideal_dcg = 0.0
-    df_filtered = resultados[resultados['DocRanking'] <= 10].copy()
+    dcg_q = []
+    idcg_q = []
+    matriz_dcg = []
+    matriz_idcg = []
+    top_10 = resultados[resultados['DocRanking'] <= 10].copy()
 
     # Lista para armazenar os valores de DCG e NDCG para cada consulta
     relevantes = esperados[esperados["QueryNumber"] == id_consulta]
     relevant_dict = dict(zip(esperados['DocNumber'], esperados['DocVotes']))
-        
-    rankings = df_filtered[df_filtered['QueryNumber'] == id_consulta]['DocNumber'].tolist()
-    ideal_rankings = sorted(rankings, key=lambda doc: relevant_dict.get(doc, 0), reverse=True)
-    
+    rankings = top_10['DocNumber'].tolist()
+    ideal_rankings = sorted(rankings, key=lambda doc: relevant_dict.get(doc, 0), reverse=True)        
     for i, doc in enumerate(rankings):
+        i += 1
         relevance = relevant_dict.get(doc, 0)
-        dcg += (2 ** relevance - 1) / np.log2(i + 2)
-        ideal_relevance = relevant_dict.get(ideal_rankings[i], 0)
-        ideal_dcg += (2 ** ideal_relevance - 1) / np.log2(i + 2)
-        
-    ndcg = dcg / ideal_dcg if ideal_dcg != 0 else 0
-    dcg_score += dcg
-    ndcg_score += ndcg
+        ideal_relevance = relevant_dict.get(ideal_rankings[i-1], 0)
+        if i == 1:
+            dcg += relevance
+            idcg += ideal_relevance
+        else:
+            dcg += relevance / np.log2(i)
+            idcg += ideal_relevance / np.log2(i)
+        dcg_q.append(dcg)
+        idcg_q.append(idcg)
+    matriz_dcg.append(dcg_q)
+    matriz_idcg.append(idcg_q)
 
     vp = 0
     precisao_soma = 0
@@ -150,17 +162,21 @@ for id_consulta in consultas:
     # Adicionar os valores de precisao calculados para a consulta na matriz da coleção
     matriz_precisoes.append(list(precisoes_interpoladas))
 
-    # MAP, DCG e nDCG
+    # MAP
     map_score += precisao_soma / num_relevantes
 
 # Cálculo das métricas finais
+matriz_dcg = np.array(matriz_dcg)
+matriz_idcg = np.array(matriz_idcg)
+idcg_score = np.mean(matriz_idcg, axis=0)
+
+dcg_score = np.mean(matriz_dcg, axis=0)
+ndcg_score = dcg_score / idcg_score
 precision_at_5 /= len(consultas)
 precision_at_10 /= len(consultas)
 f_1 /= len(consultas)
 map_score /= len(consultas)
 mrr_score /= len(consultas)
-dcg_score /= len(consultas)
-ndcg_score /= len(consultas)
 
 # Salvando os resultados no arquivo RELATORIO.MD
 with open("../AVALIACAO/RELATORIO.MD", "w") as arquivo_md:
@@ -180,13 +196,40 @@ media_colunas = np.mean(matriz_precisoes, axis=0)
 plt.plot(valores_recall_desejados, media_colunas, marker='o')
 plt.xlabel("Revocação")
 plt.ylabel("Precisão")
-plt.title("Gráfico de 11 pontos de precisão e revocação")
+plt.title("Gráfico de 11 pontos de precisão e revocação (sem o uso do stemmer)")
 plt.savefig('../AVALIACAO/11pontos-nostemmer-1.pdf', format='pdf')
 dados = list(zip(valores_recall_desejados, media_colunas))
 with open("../AVALIACAO/11pontos-nostemmer-1.csv", "w", newline="") as pontos_11_nostemmer_csv:
     writer = csv.writer(pontos_11_nostemmer_csv, delimiter=";")
-    writer.writerow(["Revocacao", "Precisao"])  # Escreve o cabeçalho
-    writer.writerows(dados)  # Escreve os dados
+    writer.writerow(["Revocacao", "Precisao"])
+    writer.writerows(dados)
+plt.show()
+
+# Plotagem do gráfico DCG
+pos_rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+plt.plot(pos_rank, dcg_score, marker='o')
+plt.xlabel("Resultados (posição no ranking)")
+plt.ylabel("DCG")
+plt.title("DCG - Discounted Cumulative Gain (sem o uso do stemmer)")
+plt.savefig('../AVALIACAO/dcg-nostemmer-1.pdf', format='pdf')
+dados_6 = list(zip(pos_rank, dcg_score))
+with open("../AVALIACAO/dcg-nostemmer-1.csv", "w", newline="") as dcg_nostemmer_csv:
+    writer = csv.writer(dcg_nostemmer_csv, delimiter=";")
+    writer.writerow(["Posição", "DCG"])
+    writer.writerows(dados_6)
+plt.show()
+
+# Plotagem do gráfico NDCG
+plt.plot(pos_rank, ndcg_score, marker='o')
+plt.xlabel("Resultados (posição no ranking)")
+plt.ylabel("NDCG")
+plt.title("NDCG - Normalized Discounted Cumulative Gain (sem o uso do stemmer)")
+plt.savefig('../AVALIACAO/ndcg-nostemmer-1.pdf', format='pdf')
+dados_7 = list(zip(pos_rank, ndcg_score))
+with open("../AVALIACAO/ndcg-nostemmer-1.csv", "w", newline="") as ndcg_nostemmer_csv:
+    writer = csv.writer(ndcg_nostemmer_csv, delimiter=";")
+    writer.writerow(["Posição", "NDCG"])
+    writer.writerows(dados_7)
 plt.show()
 
 # Histograma de R-Precision
@@ -202,9 +245,13 @@ with open("../AVALIACAO/R-precision-nostemmer-1.csv", "w", newline="") as rpreci
     writer.writerows(dados_4)
 
 plt.show()
-
+tempo_aval_nostemmer = time.time() - inicio_aval_nostemmer
+logging.info(f"Efetuada avaliação do algoritmo sem o uso do stemmer em {tempo_aval_nostemmer} segundos.")
 
 ### Avaliação do algoritmo com o uso do stemmer
+logging.info("Início da avaliação do algoritmo com o uso do stemmer.")
+inicio_aval_stemmer = time.time()
+
 # Inicialização de variaveis
 precisao_revocacao_2 = []
 precision_at_5_2 = 0
@@ -243,25 +290,33 @@ for id_consulta_2 in consultas:
     
     # DCG e NDCG
     dcg_2 = 0.0
+    idcg_2 = 0.0
     ideal_dcg_2 = 0.0
-    df_filtered_2 = resultados_2[resultados_2['DocRanking'] <= 10].copy()
+    dcg_q_2 = []
+    idcg_q_2 = []
+    matriz_dcg_2 = []
+    matriz_idcg_2 = []
+    top_10_2 = resultados_2[resultados_2['DocRanking'] <= 10].copy()
 
     # Lista para armazenar os valores de DCG e NDCG para cada consulta
     relevantes_2 = esperados_2[esperados_2["QueryNumber"] == id_consulta_2]
     relevant_dict_2 = dict(zip(esperados_2['DocNumber'], esperados_2['DocVotes']))
-        
-    rankings_2 = df_filtered_2[df_filtered_2['QueryNumber'] == id_consulta_2]['DocNumber'].tolist()
-    ideal_rankings_2 = sorted(rankings_2, key=lambda doc_2: relevant_dict_2.get(doc_2, 0), reverse=True)
-    
+    rankings_2 = top_10_2['DocNumber'].tolist()
+    ideal_rankings_2 = sorted(rankings_2, key=lambda doc: relevant_dict_2.get(doc, 0), reverse=True)        
     for i_2, doc_2 in enumerate(rankings_2):
+        i_2 += 1
         relevance_2 = relevant_dict_2.get(doc_2, 0)
-        dcg_2 += (2 ** relevance_2 - 1) / np.log2(i_2 + 2)
-        ideal_relevance_2 = relevant_dict_2.get(ideal_rankings_2[i_2], 0)
-        ideal_dcg_2 += (2 ** ideal_relevance_2 - 1) / np.log2(i_2 + 2)
-        
-    ndcg_2 = dcg_2 / ideal_dcg_2 if ideal_dcg_2 != 0 else 0
-    dcg_score_2 += dcg_2
-    ndcg_score_2 += ndcg_2
+        ideal_relevance_2 = relevant_dict_2.get(ideal_rankings_2[i_2-1], 0)
+        if i_2 == 1:
+            dcg_2 += relevance_2
+            idcg_2 += ideal_relevance_2
+        else:
+            dcg_2 += relevance_2 / np.log2(i_2)
+            idcg_2 += ideal_relevance_2 / np.log2(i_2)
+        dcg_q_2.append(dcg_2)
+        idcg_q_2.append(idcg_2)
+    matriz_dcg_2.append(dcg_q_2)
+    matriz_idcg_2.append(idcg_q_2)
 
     vp_2 = 0
     precisao_soma_2 = 0
@@ -313,13 +368,17 @@ for id_consulta_2 in consultas:
     map_score_2 += precisao_soma_2 / num_relevantes_2
 
 # Cálculo das métricas finais
+matriz_dcg_2 = np.array(matriz_dcg_2)
+matriz_idcg_2 = np.array(matriz_idcg_2)
+idcg_score_2 = np.mean(matriz_idcg_2, axis=0)
+
+dcg_score_2 = np.mean(matriz_dcg_2, axis=0)
+ndcg_score_2 = dcg_score_2 / idcg_score_2
 precision_at_5_2 /= len(consultas)
 precision_at_10_2 /= len(consultas)
 f_1_2 /= len(consultas)
 map_score_2 /= len(consultas)
 mrr_score_2 /= len(consultas)
-dcg_score_2 /= len(consultas)
-ndcg_score_2 /= len(consultas)
 
 # Salvando os resultados no arquivo RELATORIO.MD
 with open("../AVALIACAO/RELATORIO.MD", "a") as arquivo_md:
@@ -346,6 +405,33 @@ with open("../AVALIACAO/11pontos-stemmer-1.csv", "w", newline="") as pontos_11_s
     writer.writerows(dados_2)
 plt.show()
 
+# Plotagem do gráfico DCG
+pos_rank_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+plt.plot(pos_rank_2, dcg_score_2, marker='o')
+plt.xlabel("Resultados (posição no ranking)")
+plt.ylabel("DCG")
+plt.title("DCG - Discounted Cumulative Gain (com o uso do stemmer)")
+plt.savefig('../AVALIACAO/dcg-stemmer-1.pdf', format='pdf')
+dados_8 = list(zip(pos_rank_2, dcg_score_2))
+with open("../AVALIACAO/dcg-stemmer-1.csv", "w", newline="") as dcg_stemmer_csv:
+    writer = csv.writer(dcg_stemmer_csv, delimiter=";")
+    writer.writerow(["Posição", "DCG"])
+    writer.writerows(dados_8)
+plt.show()
+
+# Plotagem do gráfico NDCG
+plt.plot(pos_rank_2, ndcg_score_2, marker='o')
+plt.xlabel("Resultados (posição no ranking)")
+plt.ylabel("NDCG")
+plt.title("NDCG - Normalized Discounted Cumulative Gain (com o uso do stemmer)")
+plt.savefig('../AVALIACAO/ndcg-stemmer-1.pdf', format='pdf')
+dados_9 = list(zip(pos_rank_2, ndcg_score_2))
+with open("../AVALIACAO/ndcg-stemmer-1.csv", "w", newline="") as ndcg_stemmer_csv:
+    writer = csv.writer(ndcg_stemmer_csv, delimiter=";")
+    writer.writerow(["Posição", "NDCG"])
+    writer.writerows(dados_9)
+plt.show()
+
 # Histograma de R-Precision
 plt.bar(consultas, r_precision_2, color='b')
 plt.xlabel("Consultas")
@@ -359,6 +445,8 @@ with open("../AVALIACAO/R-precision-stemmer-1.csv", "w", newline="") as rprecisi
     writer.writerows(dados_5)
 
 plt.show()
+tempo_aval_stemmer = time.time() - inicio_aval_stemmer
+logging.info(f"Efetuada avaliação do algoritmo com o uso do stemmer em {tempo_aval_stemmer} segundos.")
 
 # Histograma comparativo de R-Precision
 diferenca_r_precision = [a - b for a, b in zip(r_precision_2, r_precision)]
@@ -374,3 +462,6 @@ with open("../AVALIACAO/R-precision-comparativo-1.csv", "w", newline="") as rpre
     writer.writerows(dados_3)
 
 plt.show()
+
+tempo_total = time.time() - inicio_geral
+logging.info(f"Fim do programa. Tempo total {tempo_total} segundos.")
